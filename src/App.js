@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import Testimonio from './componentes/Testimonio';
 
+const lista = [
+                {nbre: "Tiny Stole",titulo: "Desarrolladora web", src:"shwan"},
+                {nbre: "Fefe Garcia",titulo: "Ingeniero Informatico", src:"sarah"},
+                {nbre: "Oscar Garcia",titulo: "Data Analytic", src:"emma"},
+              ];
+let elementos=[];
+for(let i=0; i<lista.length;i++){
+  elementos.push(<Testimonio
+                    key={i}
+                    src={lista[i].src }
+                    nbre={lista[i].nbre}
+                    titulo={lista[i].titulo} />);
+}
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='contenedor-principal'>
+          <h1>Testimonios</h1>
+            { elementos}
+          
+      </div>
+      
     </div>
   );
 }
